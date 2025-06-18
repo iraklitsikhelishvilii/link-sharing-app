@@ -1,7 +1,5 @@
 import React from "react";
 import CostumizeSectionTopBox from "../../__molecules/CostumizeSectionTopBox/CostumizeSectionTopBox";
-
-import Image from "next/image";
 import CostumizeBottomBox from "../../__molecules/CostumizeBottomBox/CostumizeBottomBox";
 function CoustumizeSection() {
   return (
