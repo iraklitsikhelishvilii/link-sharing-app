@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import CostumizeSectionImg from "../../../common/images/CostumizeMainImg.svg";
-function CostumizeBottomBox() {
+function  CostumizeBottomBox() {
   return (
     <div className="w-[100%] flex flex-col items-center justify-center mt-[86px] bg-[#FAFAFA] rounded-[12px] py-[62px]">
       <Image
