@@ -24,7 +24,7 @@ function CoustumizeSection() {
       )}
 
       <button
-        onClick={() => savePlatforms()}
+        onClick={savePlatforms}
         className={`bg-[#633CFF] px-[27px] py-[11px] text-[#FFFFFF] flex text-[16px] font-semibold rounded-[8px] cursor-pointer mt-[30px] max-w-[91px] ${
           AddPlatform.length > 0 ? "" : "opacity-25"
         }`}

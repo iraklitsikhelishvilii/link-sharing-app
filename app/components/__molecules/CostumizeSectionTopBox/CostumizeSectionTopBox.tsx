@@ -23,7 +23,7 @@ function CostumizeSectionTopBox() {
       </p>
       <button
         onClick={handleAdd}
-        className="rounded-[8px] border-solid border-[1px] border-[#633CFF] w-[100%] py-[11px] mt-[40px] text-[#633CFF] text-[16px] font-semibold cursor-pointer "
+        className="rounded-[8px] border-solid border-[1px] border-[#633CFF] w-[100%] py-[11px] mt-[40px] text-[#633CFF] text-[16px] font-semibold cursor-pointer hover:bg-[#EFEBFF] "
       >
         + Add new link
       </button>

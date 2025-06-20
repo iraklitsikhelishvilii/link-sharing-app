@@ -29,9 +29,16 @@ const AddNewStore = create<AddNewInterface>((set) => ({
 
   removePlatform: (index) =>
     set((state) => {
-      const updated = [...state.AddPlatform];
-      updated.splice(index, 1);
-      return { AddPlatform: updated };
+      const updatedAddPlatform = [...state.AddPlatform];
+      updatedAddPlatform.splice(index, 1);
+
+      const updatedSavedPlatforms = [...state.savedPlatforms];
+      updatedSavedPlatforms.splice(index, 1);
+
+      return {
+        AddPlatform: updatedAddPlatform,
+        savedPlatforms: updatedSavedPlatforms,
+      };
     }),
 
   savePlatforms: () =>
@@ -41,13 +48,11 @@ const AddNewStore = create<AddNewInterface>((set) => ({
       );
 
       if (validPlatforms.length === 0) {
-        alert("Please add at least one platform with valid option and link.");
+        alert("Fill at least one platform and link.");
         return state;
       }
 
-      return {
-        savedPlatforms: [...state.savedPlatforms, ...validPlatforms],
-      };
+      return { savedPlatforms: validPlatforms };
     }),
 }));
 
