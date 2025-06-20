@@ -6,7 +6,14 @@ import LinkdinIcon from "../../../common/images/linkdinIcon.svg";
 import FacebookIcon from "../../../common/images/facebookIcon.svg";
 import FrontendmentorIcon from "../../../common/images/frontenmentorIcon.svg";
 import AddNewStore from "@/app/common/store";
-
+import TwitterIcon from "../../../common/images/twitter.svg";
+import TwitchIcon from "../../../common/images/twitchIcon.svg";
+import DevtoIcon from "../../../common/images/devtoIcon.svg";
+import CodwaresIcon from "../../../common/images/CodwaresIcon.svg";
+import FreeCodeIcon from "../../../common/images/freecode.svg";
+import GitLab from "../../../common/images/gitlab.svg";
+import HashnodeIcon from "../../../common/images/hashnode.svg";
+import StackOverflowIcon from "../../../common/images/stackoverflow.svg";
 interface AddPlatformDivProps {
   index: number;
 }
@@ -29,6 +36,18 @@ function AddPlatformDiv({ index }: AddPlatformDivProps) {
       label: "Frontend Mentor",
       value: "Frontend Mentor",
       icon: FrontendmentorIcon,
+    },
+    { label: "Twitter", value: "Twitter", icon: TwitterIcon },
+    { label: "Twitch", value: "Twitch", icon: TwitchIcon },
+    { label: "Dev.to", value: "Dev.to", icon: DevtoIcon },
+    { label: "Codewars", value: "Codewars", icon: CodwaresIcon },
+    { label: "freeCodeCamp", value: "freeCodeCamp", icon: FreeCodeIcon },
+    { label: "GitLab", value: "GitLab", icon: GitLab },
+    { label: "Hashnode", value: "Hashnode", icon: HashnodeIcon },
+    {
+      label: "Stack Overflow",
+      value: "Stack Overflow",
+      icon: StackOverflowIcon,
     },
   ];
   const usedOptions = AddPlatform.filter((_, idx) => idx !== index).map(
