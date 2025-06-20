@@ -31,7 +31,13 @@ function AddPlatformDiv({ index }: AddPlatformDivProps) {
       icon: FrontendmentorIcon,
     },
   ];
+  const usedOptions = AddPlatform.filter((_, idx) => idx !== index).map(
+    (item) => item.option
+  );
 
+  const availableOptions = options.filter(
+    (option) => !usedOptions.includes(option.value)
+  );
   return (
     <div
       key={index}
@@ -58,7 +64,7 @@ function AddPlatformDiv({ index }: AddPlatformDivProps) {
       <div className="mt-[12px] flex flex-col gap-[5px]">
         <p className="text-[12px] text-[#333333] font-normal">Platform</p>
         <SelectComp
-          options={options}
+          options={availableOptions}
           value={item.option}
           onChange={(value) => updatePlatformOption(index, value)}
         />
