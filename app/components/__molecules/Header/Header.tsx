@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderLogo from "../../__atoms/HeaderLogo/HeaderLogo";
-import linkImg from "../../../common/images/linkimg.svg";
+import linkImg from "../../../common/images/linkblackicon.svg";
 import profileIcon from "../../../common/images/profileicon.svg";
 import NavBarBtn from "../../__atoms/NavBarBtn/NavBarBtn";
 function Header() {
