@@ -1,5 +1,10 @@
-import Main from "./components/__organisms/Main/Main";
+import Link from "next/link";
 
 export default function Home() {
-  return <Main />;
+  return (
+    <div className="w-[100%] flex gap-[20px]">
+      <Link href={"/Links"}>Links</Link>
+      <Link href={"/Profile-Details"}>Profile-Details</Link>
+    </div>
+  );
 }

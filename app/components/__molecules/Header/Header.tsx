@@ -8,8 +8,12 @@ function Header() {
     <div className="max-w-[1440px] w-[100%] bg-[#fff] py-[16px] px-[24px] rounded-[12px] flex items-center justify-between">
       <HeaderLogo />
       <div className="flex gap-[16px]">
-        <NavBarBtn src={linkImg} p="Links" />
-        <NavBarBtn src={profileIcon} p="Profile Details" />
+        <NavBarBtn link="/Links" src={linkImg} p="Links" />
+        <NavBarBtn
+          link="/Profile-Details"
+          src={profileIcon}
+          p="Profile Details"
+        />
       </div>
       <button className="px-[27px] py-[11px] text-[#633CFF] text-[16px] font-semibold cursor-pointer border-[1px] border-solid border-[#633CFF] rounded-[8px]">
         Preview
