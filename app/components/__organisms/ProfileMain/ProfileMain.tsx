@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../__molecules/Header/Header";
 import MobileContainer from "../MobileContainer/MobileContainer";
-import CoustumizeSection from "../CostumizeSection/CoustumizeSection";
 import CostumizeProfileSection from "../../__molecules/CostumizeProfileSection/CostumizeProfileSection";
 
 function ProfileMain() {
