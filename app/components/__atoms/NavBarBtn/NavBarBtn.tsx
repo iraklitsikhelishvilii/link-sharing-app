@@ -1,14 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface NavBarBtn {
   src: string;
   p: string;
+  link: string;
 }
 
-function NavBarBtn({ src, p }: NavBarBtn) {
+function NavBarBtn({ src, p, link }: NavBarBtn) {
   return (
-    <button className="flex items-center justify-center gap-[8px] rounded-[8px] px-[27px] py-[11px] cursor-pointer">
+    <Link
+      href={link}
+      className="flex items-center justify-center gap-[8px] rounded-[8px] px-[27px] py-[11px] cursor-pointer"
+    >
       <Image
         className="h-[15px] w-[15px]"
         src={src}
@@ -17,7 +22,7 @@ function NavBarBtn({ src, p }: NavBarBtn) {
         height={500}
       />
       <p className="text-[16px] text-[#737373] font-semibold">{p}</p>
-    </button>
+    </Link>
   );
 }
 
