@@ -6,13 +6,15 @@ interface NavBarBtn {
   src: string;
   p: string;
   link: string;
+  color: string;
+  Pcolor: string;
 }
 
-function NavBarBtn({ src, p, link }: NavBarBtn) {
+function NavBarBtn({ src, p, link, color, Pcolor }: NavBarBtn) {
   return (
     <Link
       href={link}
-      className="flex items-center justify-center gap-[8px] rounded-[8px] px-[27px] py-[11px] cursor-pointer"
+      className={`flex items-center justify-center gap-[8px] rounded-[8px] px-[27px] py-[11px] cursor-pointer ${color}`}
     >
       <Image
         className="h-[15px] w-[15px]"
@@ -21,7 +23,9 @@ function NavBarBtn({ src, p, link }: NavBarBtn) {
         width={500}
         height={500}
       />
-      <p className="text-[16px] text-[#737373] font-semibold">{p}</p>
+      <p className={`text-[16px]  font-semibold ${Pcolor}`}>
+        {p}
+      </p>
     </Link>
   );
 }

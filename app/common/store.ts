@@ -1,5 +1,9 @@
 import { create } from "zustand";
-import { AddNewInterface } from "./types";
+import {
+  AddNewInterface,
+  PasswordToggleTypes,
+  ProfileStoreTypes,
+} from "./types";
 
 const AddNewStore = create<AddNewInterface>((set) => ({
   AddPlatform: [],
@@ -57,3 +61,41 @@ const AddNewStore = create<AddNewInterface>((set) => ({
 }));
 
 export default AddNewStore;
+
+export const PasswordToggle = create<PasswordToggleTypes>((set) => ({
+  showPassword: false,
+  toggleShowPassword: () =>
+    set((state) => ({ showPassword: !state.showPassword })),
+}));
+
+export const useProfileStore = create<ProfileStoreTypes>((set, get) => ({
+  firstname: "",
+  lastname: "",
+  email: "",
+  image: "",
+  users: [],
+
+  setFirstname: (value) => set({ firstname: value }),
+  setLastname: (value) => set({ lastname: value }),
+  setEmail: (value) => set({ email: value }),
+  setImage: (value) => set({ image: value }),
+
+  handleSave: () => {
+    const { firstname, lastname, email, image, users } = get();
+    if (!firstname || !lastname || !email || !image) return;
+
+    const newUser = { firstname, lastname, email, image };
+    set({ users: [...users, newUser] });
+
+    get().resetFields();
+    console.log("User List:", [...users, newUser]);
+  },
+
+  resetFields: () =>
+    set({
+      firstname: "",
+      lastname: "",
+      email: "",
+      image: "",
+    }),
+}));
