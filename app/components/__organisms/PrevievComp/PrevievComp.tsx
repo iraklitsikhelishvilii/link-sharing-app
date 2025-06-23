@@ -17,12 +17,17 @@ import WhiteFreeCode from "../../../common/images/whitefreecode.svg";
 import WhiteGitlab from "../../../common/images/whitegitlab.svg";
 import whitehashnode from "../../../common/images/whitehashnode.svg";
 import WhiteStack from "../../../common/images/whiteStack.svg";
+import { usePathname } from "next/navigation";
 
 function PrevievComp() {
   const { users } = useProfileStore();
   const lastUser = users.length > 0 ? users[users.length - 1] : null;
   const { savedPlatforms } = AddNewStore();
-
+  const pathname = usePathname();
+  const handleCopyLink = () => {
+    const fullLink = `${window.location.origin}${pathname}`;
+    navigator.clipboard.writeText(fullLink);
+  };
   const platformStyles: Record<
     string,
     { bg: string; icon: StaticImageData; textColor?: string }
@@ -57,7 +62,10 @@ function PrevievComp() {
             Back to Editor
           </Link>
 
-          <button className="border-[#633CFF] cursor-pointer border-[1px] border-solid px-[27px] py-[11px] rounded-[8px] text-[#FFFFFF] text-[16px] font-semibold bg-[#633CFF] hover:opacity-40">
+          <button
+            onClick={handleCopyLink}
+            className="border-[#633CFF] cursor-pointer border-[1px] border-solid px-[27px] py-[11px] rounded-[8px] text-[#FFFFFF] text-[16px] font-semibold bg-[#633CFF] hover:opacity-40"
+          >
             Share Link
           </button>
         </div>
