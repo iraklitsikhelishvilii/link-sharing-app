@@ -1,18 +1,23 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import CostumizeProfileSectionHeading from "../../__atoms/CostumizeProfileSectionHeading/CostumizeProfileSectionHeading";
 import PhotoIcon from "../../../common/images/photoIcon.svg";
 import Image from "next/image";
 import ProfileSectionInputDiv from "../ProfileSectionInputDiv/ProfileSectionInputDiv";
+import { useProfileStore } from "@/app/common/store";
 
 function CostumizeProfileSection() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [image, setImage] = useState<string>("");
-  const [users, setUsers] = useState<
-    { firstname: string; lastname: string; email: string; image: string }[]
-  >([]);
+  const {
+    firstname,
+    lastname,
+    email,
+    image,
+    setFirstname,
+    setLastname,
+    setEmail,
+    setImage,
+    handleSave,
+  } = useProfileStore();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -25,21 +30,6 @@ function CostumizeProfileSection() {
 
   const triggerFileInput = () => {
     fileInputRef.current?.click();
-  };
-
-  const handleSave = () => {
-    if (!firstname || !lastname || !email || !image) return;
-
-    const newUser = { firstname, lastname, email, image };
-    setUsers((prev) => [...prev, newUser]);
-
-    setFirstname("");
-    setLastname("");
-    setEmail("");
-    setImage("");
-    if (fileInputRef.current) fileInputRef.current.value = "";
-
-    console.log("User List:", users);
   };
 
   return (
@@ -121,7 +111,10 @@ function CostumizeProfileSection() {
       </form>
 
       <button
-        onClick={handleSave}
+        onClick={() => {
+          handleSave();
+          if (fileInputRef.current) fileInputRef.current.value = "";
+        }}
         className="bg-[#633CFF] px-[27px] py-[11px] text-[#FFFFFF] flex text-[16px] font-semibold rounded-[8px] cursor-pointer mt-[140px] max-w-[91px]"
       >
         save
